@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: scriptrank_production
-  username: scriptrank
-  password: <%= ENV['SCRIPTRANK_DATABASE_PASSWORD'] %>
+  username: Ryan
