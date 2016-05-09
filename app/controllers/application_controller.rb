@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   respond_to :json
 
-  def angular
+  def index
     render 'layouts/application'
   end
   

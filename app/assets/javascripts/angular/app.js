@@ -1,3 +1,14 @@
 angular.module('app', [
-   'controllers'
-  ])
+   'ngResource',
+   'templates',
+   'Devise',
+   'ui.bootstrap',
+   'ngMessages',
+   'ngFlash',
+   'truncate',
+   'ngFileUpload',
+   'jkuri.gallery',
+   'ui.router',
+   'app.controllers',
+   'app.routes'
+])
