@@ -5,9 +5,7 @@ class CreateScripts < ActiveRecord::Migration
       t.string :author
       t.string :genre
       t.text :logline
-      t.text :comments
       t.integer :rating
-      t.integer :votes #doineed
       t.integer :user_id
 
       t.timestamps null: false
