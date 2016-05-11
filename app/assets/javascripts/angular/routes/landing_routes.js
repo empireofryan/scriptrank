@@ -22,6 +22,7 @@ angular.module('app.routes.landing', [])
       })
       .state('app.scripts', {
         url: '/scripts',
+        template: '<div ui-view></div>',
         abstract: true
       })
       .state('app.scripts.index', {
