@@ -1,0 +1,35 @@
+<h1>New</h1>
+
+<div ng-if="scriptForm.title.$error.required" class="alert">
+Title is required
+</div>
+
+<form name="scriptForm" ng-submit="actions.submitForm()">
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" name="title" ng-model="script.title" required />
+  </div>
+
+  <div class="form-group">
+    <label>Author</label>
+    <input type="text" name="author" ng-model="script.author" required />
+  </div>
+
+  <div class="form-group">
+    <label>Genre</label>
+    <input type="text" name="genre" ng-model="script.genre" required />
+  </div>
+
+  <div class="form-group">
+    <label>Logline</label>
+    <input type="text" name="logline" ng-model="script.logline" required />
+  </div>
+
+  <div class="form-group">
+    <label>Rating</label>
+    <input type="number" name="rating" ng-model="script.rating" required />
+  </div>
+
+  <input type="submit">
+
+</form>

@@ -1,18 +1,24 @@
 angular.module('app.routes.scripts', [])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('scripts', {
+      .state('app.scripts', {
         url: '/scripts',
+        template: '<div ui-view></div>',
         abstract: true
       })
-      .state('scripts.index', {
-         url: '',
-         controller: 'ScriptsIndexController',
-         templateUrl: 'scripts/index.html',
-         resolve: {
-          scripts: function ($q) {
+      .state('app.scripts.index', {
+       url: '',
+       controller: 'ScriptsIndexController',
+       templateUrl: 'scripts/index.html',
+       resolve: {
+          scripts: function ($q, $http) {
             return [];
           }
-         }
+        }
       })
-  });
+      .state('app.scripts.new', {
+        url: '/new',
+        controller: 'ScriptsNewController',
+        templateUrl: 'scripts/new.html'
+      })
+    });

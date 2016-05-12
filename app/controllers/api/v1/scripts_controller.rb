@@ -12,6 +12,7 @@ module Api
       end
 
       def create
+        byebug;0
         script = Script.new(script_params)
         if script.save
           respond_to do |format|
