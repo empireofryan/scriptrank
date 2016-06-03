@@ -11,8 +11,10 @@ angular.module('app.routes.scripts', [])
        controller: 'ScriptsIndexController',
        templateUrl: 'scripts/index.html',
        resolve: {
-          scripts: function ($q, $http) {
-            return [];
+          scripts: function (ScriptsApi) {
+            return ScriptsApi.get().then(function (response) {
+              return response.scripts;
+            });
           }
         }
       })

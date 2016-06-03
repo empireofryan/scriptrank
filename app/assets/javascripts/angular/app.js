@@ -10,5 +10,6 @@ angular.module('app', [
    'jkuri.gallery',
    'ui.router',
    'app.controllers',
-   'app.routes'
+   'app.routes',
+   'app.services'
 ])

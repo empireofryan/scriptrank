@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  resources :scripts
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root to: "application#index"
 
+  devise_for :users#, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      resources :genres do
+        resources :scripts
+      end
       resources :scripts
-    end
-  end
-
+      resources :comments, only: [:create, :edit, :update]
+      get '/scripts/:id/comments/new', to: 'comments#new'
+   end
+ end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
