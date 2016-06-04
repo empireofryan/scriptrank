@@ -12,7 +12,7 @@ angular.module('app.routes.scripts', [])
        templateUrl: 'scripts/index.html',
        resolve: {
           scripts: function (ScriptsApi) {
-            return ScriptsApi.get().then(function (response) {
+            return ScriptsApi.get().$promise.then(function (response) {
               return response.scripts;
             });
           }
@@ -21,6 +21,13 @@ angular.module('app.routes.scripts', [])
       .state('app.scripts.new', {
         url: '/new',
         controller: 'ScriptsNewController',
-        templateUrl: 'scripts/new.html'
+        templateUrl: 'scripts/new.html',
+        resolve: {
+         genres: function (GenresApi) {
+           return GenresApi.get().$promise.then(function (response) {
+             return response.genres;
+           });
+         }
+       }
       })
     });

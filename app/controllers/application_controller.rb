@@ -10,10 +10,10 @@ class ApplicationController < ActionController::Base
   def index
     render 'layouts/application'
   end
-  
+
   def default_serializer_options
     {root: false}
-  end 
+  end
 
   protected
     def configure_permitted_parameters

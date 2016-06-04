@@ -12,4 +12,8 @@ angular.module('app', [
    'app.controllers',
    'app.routes',
    'app.services'
-])
+]).run(function ($rootScope) {
+  $rootScope.$on('$stateChangeError', function (event, a, b, c, d, e) {
+    debugger;
+  });
+});

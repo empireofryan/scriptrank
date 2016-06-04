@@ -6,10 +6,7 @@ module Api
 
       def index
         @scripts = Script.where(genre_id: params[:genre_id])
-          respond_to do |f|
-          f.html { render :index }
-          f.json { render json: @scripts }
-         end
+        respond_with @scripts
       end
 
       def new
