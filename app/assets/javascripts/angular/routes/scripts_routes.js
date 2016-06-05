@@ -30,10 +30,13 @@ angular.module('app.routes.scripts', [])
          }
        }
       })
-
       .state('app.scripts.show', {
         url: '/show/:id',
-
-        
+        controller: 'ShowController',
+        resolve: {
+          script: function(ScriptsApi, $stateParams){
+            var id = $stateParams.id;
+          }
+        }
       })
     });
