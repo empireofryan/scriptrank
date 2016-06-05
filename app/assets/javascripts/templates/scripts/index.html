@@ -6,7 +6,7 @@
 <section style="text-align:center">
   <span style="text-align:center; color:white;font-size:1.5em; margin-right:10px; margin-top:5px">Title</span>
   <span class="input-list clearfix" style="text-align:center">
-      <input style="text-align:center; width:200px" type="text" placeholder="">
+      <input style="text-align:center; width:200px" type="text" placeholder="" ng-model="searchText">
   </span>
   <span style="text-align:center; color:white;font-size:1.5em; margin-left:20px; margin-right:10px; margin-top:5px">Author</span>
   <span class="input-list clearfix" style="text-align:center; ">
@@ -23,7 +23,7 @@
 </section>
 
 <section>
-  <div class="color-box col-md-4" style="background-color:#ddd;">
+  <!-- <div class="color-box col-md-4" style="background-color:#ddd;">
     <p style="color:black">Pulp Fiction</p>
   </div>
   <div class="color-box col-md-3" style="background-color:#ddd;">
@@ -31,5 +31,10 @@
   </div>
   <div class="color-box col-md-3" style="background-color:#ddd;">
     <p style="color:black">Pulp Fiction</p>
+  </div> -->
+  <div>
+    <div ng-repeat="script in scripts | filter:searchText | orderBy: 'created_at'" ui-sref="app.scripts.show({id: script.id})">
+      <p style="color:white">{{script.title}}</p>
+    </div>
   </div>
 </section>

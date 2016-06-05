@@ -5,8 +5,10 @@ module Api
       before_action :authenticate_user!, except: [:index, :show]
 
       def index
-        @scripts = Script.where(genre_id: params[:genre_id])
-        respond_with @scripts
+        @scripts = Script.where(genre_id: params[:genre_id]) if params.key?(:genre_id)
+        @scripts ||= Script.all
+
+        render json: {scripts: @scripts}
       end
 
       def new
@@ -30,14 +32,15 @@ module Api
 
       def create
         @script = current_user.scripts.build(script_params)
-        @script.comments do |comment|
-          comment.user = current_user
-          current_user.comments << comment
-          comment.save
-        end
+        # @script.comments do |comment|
+        #   comment.user = current_user
+        #   current_user.comments << comment
+        #   comment.save
+        # end
         if @script.save
+          @script.comments.build(user: current_user, description: params[:comment])
           flash[:success] = "Your event was successfully created!"
-          redirect_to genre_scripts_path(@script.genre)
+          render json: {message: "Your script has been created" }
         else
           render :new
           1.times { @script.comments.build }
@@ -64,7 +67,7 @@ module Api
       private
 
       def script_params
-        params.require(:script).permit(:user_id, :title, :logline, :genre_id, comments_attributes: [:description, :user_id])
+        params.require(:script).permit(:user_id, :author, :title, :logline, :genre_id, comments_attributes: [:description, :user_id])
       end
 
       def genre_params

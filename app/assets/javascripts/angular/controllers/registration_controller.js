@@ -3,7 +3,7 @@ angular.module('app.controllers.registration', [])
     $scope.actions = {
       register: function() {
         Auth.register($scope.user).then(function(){
-          $state.go('scripts.index');
+          $state.go('app.scripts.index');
         }, function(response) {
         });
       }

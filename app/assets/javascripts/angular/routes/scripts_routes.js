@@ -30,4 +30,10 @@ angular.module('app.routes.scripts', [])
          }
        }
       })
+
+      .state('app.scripts.show', {
+        url: '/show/:id',
+
+        
+      })
     });
