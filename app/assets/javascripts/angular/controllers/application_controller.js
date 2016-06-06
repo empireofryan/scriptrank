@@ -2,8 +2,6 @@ angular.module('app.controllers.application', [])
       .controller('ApplicationController', function($scope, Auth, $state){
   $scope.signedIn = Auth.isAuthenticated;
 
-  console.log("We are loading this");
-
   $scope.logout = function(){
     Auth.logout();
   }

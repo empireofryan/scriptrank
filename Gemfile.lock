@@ -198,7 +198,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip (~> 5.0.0.beta1)
+  paperclip
   pg (~> 0.15)
   rails (= 4.2.6)
   rails-assets-angular-devise!

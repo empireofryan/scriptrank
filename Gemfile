@@ -33,7 +33,9 @@ gem 'devise'
 
 gem 'twitter-bootstrap-rails'
 
-gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip"
+
+gem 'jquery-rails'
 
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"

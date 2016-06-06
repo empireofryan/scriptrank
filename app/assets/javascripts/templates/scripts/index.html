@@ -1,25 +1,33 @@
 <link href='https://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-
-<h1 style="text-align:center">Scripts</h1>
+<br><br><br>
+<div style="margin: 0 auto; width:300px; height:100px; padding:10px; margin-top:10px; border: 1px solid white; text-align:center; font-size:5em">
+  <h1 style="text-align:center;">Scripts</h1>
+</div>
 <section style="text-align:center">
-  <span style="text-align:center; color:white;font-size:1.5em; margin-right:10px; margin-top:5px">Title</span>
-  <span class="input-list clearfix" style="text-align:center">
-      <input style="text-align:center; width:200px" type="text" placeholder="" ng-model="searchText">
-  </span>
-  <span style="text-align:center; color:white;font-size:1.5em; margin-left:20px; margin-right:10px; margin-top:5px">Author</span>
-  <span class="input-list clearfix" style="text-align:center; ">
-      <input style="text-align:center; width:200px" type="text" placeholder="">
-  </span>
-  <div class="genre">
-    <h2 style="">Genre</h2>
-    <span>Action</span><span>Animated</span><span>Comedy</span><span>Drama</span><span>Horror</span><span>Musical</span><span>Romance</span><span>Sci-Fi</span><span>Western</span>
+  <div class='row' style="margin-top:30px">
+    <div class='col-md-2'>
+      <div style="text-align:center; color:white;font-size:1.5em; margin-right:10px; ">Title</div>
+      <span class="input-list clearfix" style="text-align:center">
+          <input style="text-align:center; width:200px" type="text" placeholder="" ng-model="searchText">
+      </span>
+    </div>
+    <div class="col-md-2">
+      <div style="text-align:center; color:white;font-size:1.5em;">Author</div>
+      <span class="input-list clearfix" style="text-align:center;">
+          <input style="text-align:center; width:200px" type="text" placeholder="">
+      </span>
+    </div>
+    <div class="genre col-md-7">
+      <div style="font-size:1.5em; margin-bottom:10px">Genre</div>
+      <span style='background-color:gray'>Action</span><span>Animated</span><span>Comedy</span><span>Drama</span><span>Horror</span><span>Musical</span><span>Romance</span><span>Sci-Fi</span><span>Western</span>
+    </div>
   </div>
   <br>
-  <div class="sort">
+  <!-- <div class="sort">
     <span><b>Sort by</b></span><span>Rating</span><span>Votes</span>
-  </div>
+  </div> -->
 </section>
 
 <section>
@@ -32,9 +40,11 @@
   <div class="color-box col-md-3" style="background-color:#ddd;">
     <p style="color:black">Pulp Fiction</p>
   </div> -->
-  <div>
-    <div ng-repeat="script in scripts | filter:searchText | orderBy: 'created_at'" ui-sref="app.scripts.show({id: script.id})">
+  <div style="text-align:center; margin-left:7%; margin-right:7%; margin-bottom:35px">
+    <div class="col-md-2" style="text-align:center; margin-top:80px; background-color:gray; padding:5px; margin:10px" ng-repeat="script in scripts | filter:searchText | orderBy: 'created_at'" ui-sref="app.scripts.show({id: script.id})">
       <p style="color:white">{{script.title}}</p>
+      <p style="color:white">{{script.author}}</p>
+      <p style="color:white">{{genre.name}}</p>
     </div>
   </div>
 </section>
