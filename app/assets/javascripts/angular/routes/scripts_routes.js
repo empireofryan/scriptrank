@@ -33,9 +33,11 @@ angular.module('app.routes.scripts', [])
       .state('app.scripts.show', {
         url: '/show/:id',
         controller: 'ShowController',
+        templateUrl: 'scripts/show.html',
         resolve: {
           script: function(ScriptsApi, $stateParams){
             var id = $stateParams.id;
+
           }
         }
       })
