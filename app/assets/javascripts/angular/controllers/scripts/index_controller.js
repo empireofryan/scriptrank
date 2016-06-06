@@ -10,4 +10,5 @@ angular.module('app.controllers.scripts.index', [])
       horror: false,
       scifi: false,
     }
+
   });
