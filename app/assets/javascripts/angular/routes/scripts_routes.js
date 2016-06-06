@@ -37,7 +37,9 @@ angular.module('app.routes.scripts', [])
         resolve: {
           script: function(ScriptsApi, $stateParams){
             var id = $stateParams.id;
-
+            return ScriptsApi.get().$promise.then(function (response) {
+              return response.scripts;
+            })
           }
         }
       })
