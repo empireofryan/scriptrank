@@ -33,11 +33,6 @@ module Api
 
       def create
         @script = current_user.scripts.build(script_params)
-        # @script.comments do |comment|
-        #   comment.user = current_user
-        #   current_user.comments << comment
-        #   comment.save
-        # end
         if @script.save
           @comment = @script.comments.build(user: current_user, description: params[:comment])
           @comment.save
