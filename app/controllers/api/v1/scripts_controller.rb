@@ -3,6 +3,7 @@ module Api
     class ScriptsController < ApplicationController
 
       before_action :authenticate_user!, except: [:index, :show]
+      before_action :set_script, only: [:upvote, :update, :destroy]
 
       def index
         @scripts = Script.where(genre_id: params[:genre_id]) if params.key?(:genre_id)
@@ -38,7 +39,8 @@ module Api
         #   comment.save
         # end
         if @script.save
-          @script.comments.build(user: current_user, description: params[:comment])
+          @comment = @script.comments.build(user: current_user, description: params[:comment])
+          @comment.save
           flash[:success] = "Your event was successfully created!"
           render json: {message: "Your script has been created" }
         else
@@ -48,7 +50,6 @@ module Api
       end
 
       def update
-        @script = Script.find(params[:id])
         if @script.update(script_params)
           @script.save
           redirect_to genre_scripts_path(@script)
@@ -58,13 +59,22 @@ module Api
       end
 
       def destroy
-        @script = Script.find(params[:id])
         @script.destroy
         flash[:notice] = "Script deleted"
         redirect_to genre_scripts_path(@script.genre)
       end
 
+      def upvote
+        @script.liked_by current_user
+
+        render json: { message: "You have liked the script" }
+      end
+
       private
+
+      def set_script
+        @script = Script.find(params[:id])
+      end
 
       def script_params
         params.require(:script).permit(:user_id, :author, :title, :logline, :genre_id, comments_attributes: [:description, :user_id])

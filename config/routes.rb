@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         resources :scripts
       end
       resources :scripts
+      put '/scripts/:id/upvote', to: 'scripts#upvote'
       resources :comments, only: [:create, :edit, :update]
       get '/scripts/:id/comments/new', to: 'comments#new'
    end

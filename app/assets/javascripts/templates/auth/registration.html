@@ -4,11 +4,11 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h1>Register</h1>
-        <form ng-submit="actions.register()">
+        <form ng-submit="actions.register()" name="loginForm">
           <div class="form-group">
             <input type="email" class="form-control" placeholder="Email" ng-model="user.email" autofocus>
               <div class="message">
-                <div ng-if="form.email.$touched && (form.email.$error.required || form.email.$invalid)">
+                <div ng-if="loginForm.email.$touched && (loginForm.email.$error.required || loginForm.email.$invalid)">
                   A valid email is required!
                 </div>
             </div>

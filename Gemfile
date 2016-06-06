@@ -37,6 +37,7 @@ gem "paperclip"
 
 gem 'jquery-rails'
 
+gem 'acts_as_votable', '~> 0.10.0'
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end

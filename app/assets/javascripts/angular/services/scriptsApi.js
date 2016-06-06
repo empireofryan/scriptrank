@@ -4,6 +4,8 @@ angular.module('app.services.api.scripts', [])
 })
 
 .factory('ScriptsApi', function ($resource) {
-  return $resource('/api/v1/scripts/:script_id.json');
+  return $resource('/api/v1/scripts/:script_id.json', {}, {
+    upvote: { method: "PUT", url: '/api/v1/scripts/:script_id/upvote.json'}
+  });
   console.log();
 });

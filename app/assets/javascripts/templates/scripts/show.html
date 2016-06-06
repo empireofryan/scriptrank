@@ -1,4 +1,24 @@
 <link href='https://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-<br><br><br><br><p>Hello</p>
-<div ui-sref="app.scripts.show({id: script.id})">
-<p style="color:white">{{script.title}}</p>
+<div class="container">
+  <br><br><br><br>
+  <p>Title</p>
+  <p style="color:white">{{script.title}}</p><br>
+  <p>Author</p>
+  <p style="color:white">{{script.author}}</p><br>
+  <p>Genre</p>
+  <p style="color:white">{{script.genre.name}}</p><br>
+  <p>Logline</p>
+  <p style="color:white">{{script.logline}}</p><br>
+  <p>Comments</p>
+  <div ng-repeat="comment in script.comments">
+    <p style="color:white">{{comment.description}}</p>
+    <p style="color:white">{{comment.user.email}}</p>
+    <p>showing up??</p>
+  </div>
+  <br>
+  <p>#way to display associated user_id to email#</p>
+  <br><br>
+  <a ui-sref="app.scripts.show({id: script.prev_id})">Previous</a>
+  <a href="#">Next</a>
+  <a ng-click="upvote()">Upvote ({{script.upvotes_count}})</a>
+</div>
