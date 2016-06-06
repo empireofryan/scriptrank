@@ -3,5 +3,6 @@
 <div class="container">
   <h3 class="pull-left">ScriptRank</h3>
     <div ng-show="signedIn()" style="margin-top:20px; padding-left:200px; position:absolute">Logged in as {{ user.email }}</div>
-  <a ui-sref="app.scripts.new" class="btn btn>-primary pull-right" style="margin-top:10px; margin-right:20px">New Script</a>
+    <li ng-show="signedIn()" ui-sref-active="active"><a ng-click="logout()">Log Out</a></li>
+  <a div ng-show="signedIn()" ui-sref="app.scripts.new" class="btn btn>-primary pull-right" style="margin-top:10px; margin-right:20px">New Script</a>
 </div>
