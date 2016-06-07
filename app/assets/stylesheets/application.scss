@@ -20,7 +20,13 @@
 }
 
 body {
-  background-color:black !important;
+
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/writer.jpg') !important;
+  display:table;
+  width:100%;
+  background-size: 120% !important;
+  background-position:center top;
+  background-repeat: no-repeat;
 }
 
 h1, h2, a, p, span {

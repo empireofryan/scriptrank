@@ -7,5 +7,11 @@ angular.module('app.services.api.scripts', [])
   return $resource('/api/v1/scripts/:script_id.json', {}, {
     upvote: { method: "PUT", url: '/api/v1/scripts/:script_id/upvote.json'}
   });
-  console.log();
+})
+
+.factory('ScriptCommentsApi', function ($resource) {
+  return $resource('/api/v1/scripts/:script_id/comments/:comment_id.json', {
+    script_id: '@script_id',
+    comment_id: '@comment_id'
+  });
 });
