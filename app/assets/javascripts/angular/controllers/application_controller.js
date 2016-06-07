@@ -20,6 +20,6 @@ angular.module('app.controllers.application', [])
 
   $scope.$on('devise:logout', function (e, user){
     $scope.user = {}
-    $state.go('welcome')
+    $state.go('app.landing')
   });
 })

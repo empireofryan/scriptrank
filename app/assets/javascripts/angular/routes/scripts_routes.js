@@ -4,7 +4,10 @@ angular.module('app.routes.scripts', [])
       .state('app.scripts', {
         url: '/scripts',
         template: '<div ui-view></div>',
-        abstract: true
+        abstract: true,
+        data: {
+          authenticate: true
+        }
       })
       .state('app.scripts.index', {
        url: '',

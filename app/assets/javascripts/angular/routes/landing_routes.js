@@ -1,5 +1,7 @@
 angular.module('app.routes.landing', [])
   .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/login');
+
     $stateProvider
       .state('app', {
         abstract: true,
