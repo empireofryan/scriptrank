@@ -14,6 +14,7 @@ class ScriptSerializer < ActiveModel::Serializer
     object.class.where('genre_id = ? and id < ?', object.genre_id, object.id).order('id desc').limit(1).pluck(:id).first
   end
 
+
   def upvotes_count
     object.votes_for.size
   end
