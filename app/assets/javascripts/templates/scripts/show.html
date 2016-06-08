@@ -14,21 +14,23 @@
       </div>
       <form name="commentForm" ng-submit="submitComment()">
       <div class="form-group">
-        <label class="col-sm-2 mt15">Add Comment</label>
-        <textarea type="text" name="comment" rows="5" cols="50" class="col-sm-10 logline-form" ng-model="newComment.description" required ></textarea>
-        <input type="submit">
-      </div>
+        <label class="col-md-12 mt15">Add Comment</label>
+        <textarea type="text" name="comment" rows="5" cols="50" class="col-md-10 logline-form" ng-model="newComment.description" required ></textarea>
+        <div class="clearfix">
+        <input type="submit" style="margin-top:10px; color:black">
+        </div>
+        </div
     </form>
   </div>
   <br>
   <div class="col-md-4" style="text-align:center; margin: 0 auto;">
     <img ng-src="{{image}}" style="width:30px"/>
     <a ng-click="upvote()">Likes ({{script.upvotes_count}})</a><br><br><br><br>
-    <a href="#"><img ng-src="{{pdf}}" style="width:120px;" class="center-block"/></a>
+    <!-- <a href="#"><img ng-src="{{pdf}}" style="width:120px;" class="center-block"/></a> -->
   </div>
   <div class="clearfix"></div><br>
   <div class="container">
     <a ui-sref="app.scripts.show({id: script.prev_id})">Previous</a>
-    <a href="app.scripts.show({id: script.next_id})">Next</a>
+    <a ui-sref="app.scripts.show({id: script.next_id})">Next</a>
   </div>
 </div>

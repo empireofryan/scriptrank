@@ -5,8 +5,8 @@ class ScriptSerializer < ActiveModel::Serializer
 
   def next_id
     #object.class.where("id > ?", object.id).first
-    Script.where(genre: object.genre).where('id > ?', object.id).order(id: :ASC).first
-    #object.class.where('genre_id = ? and id > ?', object.genre_id, object.id).order('id asc').limit(1).pluck(:id).first
+    #Script.where(genre: object.genre).where('id > ?', object.id).order(id: :ASC).first
+    object.class.where('genre_id = ? and id > ?', object.genre_id, object.id).order('id asc').limit(1).pluck(:id).first
   end
 
   def prev_id
