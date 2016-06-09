@@ -9,4 +9,5 @@ angular.module('app.controllers.scripts.new', [])
       }
     };
     $scope.genres = genres;
+    console.log($scope);
   });
