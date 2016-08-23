@@ -17,7 +17,7 @@
     $scope.pdf = "https://4.bp.blogspot.com/-A4UAkPrRSRo/VNjzEfVTU_I/AAAAAAAAB7Q/8HfGtfc5xrk/s1600/download_pdf.png";
 
     $scope.submitComment = function () {
-      return ScriptCommentsApi.save($scope.newComment).success(function (comment) {
+      return ScriptCommentsApi.then($scope.newComment).$promise.then(function (comment) {
         $scope.script.comments.push(comment);
         delete $scope.newComment.description;
       });
